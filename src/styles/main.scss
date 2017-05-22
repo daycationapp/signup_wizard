@@ -12,10 +12,34 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-size: 14px;
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+form.signup {
+  .form-group {
+    text-align: left;
+
+    .control-label {
+      font-weight: 400;
+
+      &.highlight-label {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
 }
