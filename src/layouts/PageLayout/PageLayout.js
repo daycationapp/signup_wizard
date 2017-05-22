@@ -1,21 +1,46 @@
-import React from 'react'
-import { IndexLink, Link } from 'react-router'
-import PropTypes from 'prop-types'
-import './PageLayout.scss'
+import React, { PropTypes } from 'react';
+import { IndexLink, Link } from 'react-router';
+import FontAwesomeIcon from '../../components/FontAwesomeIcon';
+import './PageLayout.scss';
 
-export const PageLayout = ({ children }) => (
-  <div className='container text-center'>
-    <h1>React Redux Starter Kit</h1>
-    <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
-    <div className='page-layout__viewport'>
-      {children}
-    </div>
-  </div>
-)
-PageLayout.propTypes = {
-  children: PropTypes.node,
+class PageLayout extends React.Component {
+    constructor(...args) {
+        super(...args);
+    }
+
+    render() {
+        return (
+            <div className='container text-center'>
+                <div className='nav-back'>
+                    <Link to='/'>
+                        Go To Management Software Demo
+                        <FontAwesomeIcon icon='long-arrow-right' />
+                    </Link>
+                </div>
+                <div className='row'>
+                    <div className='col-md-12'>
+                        <div className='main'>
+                            <h3 className='main-title'>Daycation Program Setup</h3>
+                            <div className='step-links'>
+                                <IndexLink to='/' activeClassName='page-layout__nav-item--active'>1<br />Hotel Info</IndexLink>
+                                <Link to='/day-passes' activeClassName='page-layout__nav-item--active'>2<br />Day Passes</Link>
+                                <Link to='/cabanas' activeClassName='page-layout__nav-item--active'>3<br />Cabanas</Link>
+                                <Link to='/agreement' activeClassName='page-layout__nav-item--active'>4<br />Agreement</Link>
+                            </div>
+
+                            <div className='page-layout__viewport'>
+                                {this.props.children}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
-export default PageLayout
+PageLayout.propTypes = {
+    children: PropTypes.node,
+};
+
+export default PageLayout;
