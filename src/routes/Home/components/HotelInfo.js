@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import './HotelInfo.scss';
 
 class HotelInfo extends React.Component {
     constructor(...args) {

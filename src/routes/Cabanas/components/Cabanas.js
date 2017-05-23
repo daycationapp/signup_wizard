@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Checkbox, Button } from 'react-bootstrap';
-import './DayPasses.scss';
 
 class DayPasses extends React.Component {
     constructor(...args) {
