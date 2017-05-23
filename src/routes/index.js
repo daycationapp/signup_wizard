@@ -3,6 +3,7 @@ import CoreLayout from '../layouts/PageLayout/PageLayout';
 import Home from './Home';
 import DayPassesRoute from './DayPasses';
 import CabanasRoute from './Cabanas';
+import AgreementRoute from './Agreement';
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -13,7 +14,8 @@ export const createRoutes = (store) => ({
   indexRoute  : Home(store),
   childRoutes : [
     DayPassesRoute(store),
-    CabanasRoute(store)
+    CabanasRoute(store),
+    AgreementRoute(store)
   ]
 });
 

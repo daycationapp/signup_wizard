@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Row, Col, FormGroup, ControlLabel, FormControl, Checkbox, Button } from 'react-bootstrap';
+import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
-class DayPasses extends React.Component {
+class Cabanas extends React.Component {
     constructor(...args) {
         super(...args);
 
@@ -72,7 +72,7 @@ class DayPasses extends React.Component {
     }
 }
 
-DayPasses.propTypes = {
+Cabanas.propTypes = {
 };
 
-export default DayPasses;
+export default Cabanas;

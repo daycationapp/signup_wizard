@@ -1,0 +1,30 @@
+.agreement {
+    margin-bottom: 50px;
+}
+
+.sign-form {
+    text-align: left;
+
+    .contractor-name {
+        font-size: 1.2rem;
+    }
+
+    .form-control {
+        width: 250px;
+        margin-bottom: 10px;
+        border: 0px;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+        padding-bottom: 0px;
+        font-size: 1.1rem;
+    }
+
+    .sign-by {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+}
+
+.end-title {
+    padding: 50px 0px 30px 0px;
+}
