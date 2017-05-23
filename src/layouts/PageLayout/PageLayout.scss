@@ -35,7 +35,8 @@
   margin: 0px 20px;
   display: inline-block;
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: none;
   }
 }
