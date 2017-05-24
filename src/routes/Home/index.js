@@ -8,7 +8,7 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const HotelInfo = require('./components/HotelInfo').default
+      const HotelInfo = require('./containers/HotelInfoContainer').default
       const reducer = require('./modules/hotelInfo.js').default
 
       /*  Add the reducer to the store on key 'dayPasses'  */
