@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Checkbox, Button } from 'react-bootstrap';
 import merge from 'lodash.merge';
 import './DayPasses.scss';
