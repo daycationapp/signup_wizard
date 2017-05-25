@@ -78,15 +78,16 @@ class DayPasses extends React.Component {
     }
 
     handleNextClick() {
-        let dayPasses = {...this.state.dayPasses};
-        this.props.saveDayPasses(dayPasses);
         browserHistory.push('/cabanas');
     }
 
     handlePreviousClick() {
+        browserHistory.push('/');
+    }
+
+    handleSaveClick() {
         let dayPasses = {...this.state.dayPasses};
         this.props.saveDayPasses(dayPasses);
-        browserHistory.push('/');
     }
 
     renderCheckboxes(items, fieldName) {
@@ -376,7 +377,7 @@ class DayPasses extends React.Component {
                 <div className='text-center mt30'>
                     <Button bsStyle='link' className='mr20' onClick={this.handlePreviousClick.bind(this)}>Previous</Button>
                     <Button bsStyle='link' className='mr20' onClick={this.handleNextClick.bind(this)}>Next</Button>
-                    <Button bsStyle='primary'>Save</Button>
+                    <Button bsStyle='primary' onClick={this.handleSaveClick.bind(this)}>Save</Button>
                 </div>
             </form>
         );

@@ -31,9 +31,12 @@ class HotelInfo extends React.Component {
     }
 
     handleNextClick() {
+        browserHistory.push('/day-passes');
+    }
+
+    handleSaveClick() {
         let hotelInfo = {...this.state.hotelInfo};
         this.props.saveHotelInfo(hotelInfo);
-        browserHistory.push('/day-passes');
     }
 
     render() {
@@ -182,7 +185,7 @@ class HotelInfo extends React.Component {
 
                 <div className='text-center mt20'>
                     <Button bsStyle='link' className='mr20' onClick={this.handleNextClick.bind(this)}>Next</Button>
-                    <Button bsStyle='primary'>Save</Button>
+                    <Button bsStyle='primary' onClick={this.handleSaveClick.bind(this)}>Save</Button>
                 </div>
             </form>
         );

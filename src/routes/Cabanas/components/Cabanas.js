@@ -25,14 +25,15 @@ class Cabanas extends React.Component {
     }
 
     handleNextClick() {
-        let cabanas = {...this.state.cabanas};
-        this.props.saveCabanas(cabanas);
         browserHistory.push('/agreement');
     }
 
-    handlePreviousClick() {
+    handleSaveClick() {
         let cabanas = {...this.state.cabanas};
         this.props.saveCabanas(cabanas);
+    }
+
+    handlePreviousClick() {
         browserHistory.push('/day-passes');
     }
 
@@ -122,7 +123,7 @@ class Cabanas extends React.Component {
                 <div className='text-center mt30'>
                     <Button bsStyle='link' className='mr20' onClick={this.handlePreviousClick.bind(this)}>Previous</Button>
                     <Button bsStyle='link' className='mr20' onClick={this.handleNextClick.bind(this)}>Next</Button>
-                    <Button bsStyle='primary'>Save</Button>
+                    <Button bsStyle='primary' onClick={this.handleSaveClick.bind(this)}>Save</Button>
                 </div>
             </form>
         );
