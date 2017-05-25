@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { browserHistory } from 'react-router';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 const HOTEL_NAME = 'hotelName';
@@ -23,15 +24,20 @@ class HotelInfo extends React.Component {
     }
 
     handleFieldChange(fieldName, event) {
-        debugger;
         const value = event.target.value;
-        this.setState({
-            [fieldName]: value
-        });
+        let hotelInfo = {...this.state.hotelInfo};
+        hotelInfo[fieldName] = value;
+        this.setState({ hotelInfo: hotelInfo });
+    }
+
+    handleNextClick() {
+        let hotelInfo = {...this.state.hotelInfo};
+        this.props.saveHotelInfo(hotelInfo);
+        browserHistory.push('/day-passes');
     }
 
     render() {
-        const data = {...this.props.hotelInfo}
+        const data = {...this.state.hotelInfo};
         return (
             <form className='signup'>
                 <FormGroup>
@@ -39,7 +45,7 @@ class HotelInfo extends React.Component {
                     <FormControl
                         type='text'
                         value={data[HOTEL_NAME]}
-                        onBlur={this.handleFieldChange.bind(this, HOTEL_NAME)}
+                        onChange={this.handleFieldChange.bind(this, HOTEL_NAME)}
                     />
                 </FormGroup>
 
@@ -50,7 +56,7 @@ class HotelInfo extends React.Component {
                             <FormControl
                                 type='text'
                                 value={data[FIND_OUT]}
-                                onBlur={this.handleFieldChange.bind(this, FIND_OUT)}/>
+                                onChange={this.handleFieldChange.bind(this, FIND_OUT)}/>
                         </FormGroup>
                     </Col>
                 </Row>
@@ -62,7 +68,7 @@ class HotelInfo extends React.Component {
                     <FormControl
                         type='text'
                         value={data[STREET_ADDRESS]}
-                        onBlur={this.handleFieldChange.bind(this, STREET_ADDRESS)}
+                        onChange={this.handleFieldChange.bind(this, STREET_ADDRESS)}
                     />
                 </FormGroup>
 
@@ -71,7 +77,7 @@ class HotelInfo extends React.Component {
                     <FormControl
                         type='text'
                         value={data[ADDRESS_LINE2]}
-                        onBlur={this.handleFieldChange.bind(this, ADDRESS_LINE2)}
+                        onChange={this.handleFieldChange.bind(this, ADDRESS_LINE2)}
                     />
                 </FormGroup>
 
@@ -82,7 +88,7 @@ class HotelInfo extends React.Component {
                             <FormControl
                                 type='text'
                                 value={data[CITY]}
-                                onBlur={this.handleFieldChange.bind(this, CITY)}
+                                onChange={this.handleFieldChange.bind(this, CITY)}
                             />
                         </FormGroup>
                     </Col>
@@ -92,7 +98,7 @@ class HotelInfo extends React.Component {
                             <FormControl
                                 type='text'
                                 value={data[STATE]}
-                                onBlur={this.handleFieldChange.bind(this, STATE)}
+                                onChange={this.handleFieldChange.bind(this, STATE)}
                             />
                         </FormGroup>
                     </Col>
@@ -102,13 +108,21 @@ class HotelInfo extends React.Component {
                     <Col md={6}>
                         <FormGroup>
                             <ControlLabel>ZIP / Postal Code</ControlLabel>
-                            <FormControl type='text' value={this.state.postalCode}/>
+                            <FormControl
+                                type='text'
+                                value={data[ZIP_CODE]}
+                                onChange={this.handleFieldChange.bind(this, ZIP_CODE)}
+                            />
                         </FormGroup>
                     </Col>
                     <Col md={6}>
                         <FormGroup>
                             <ControlLabel>Country</ControlLabel>
-                            <FormControl componentClass='select'>
+                            <FormControl
+                                componentClass='select'
+                                value={data[COUNTRY]}
+                                onChange={this.handleFieldChange.bind(this, COUNTRY)}
+                            >
                                 <option value='select'>select</option>
                             </FormControl>
                         </FormGroup>
@@ -124,19 +138,31 @@ class HotelInfo extends React.Component {
                     <Col md={4}>
                         <FormGroup>
                             <ControlLabel>First</ControlLabel>
-                            <FormControl type='text' value={this.state.first}/>
+                            <FormControl
+                                type='text'
+                                value={data[ADMIN_FIRST_NAME]}
+                                onChange={this.handleFieldChange.bind(this, ADMIN_FIRST_NAME)}
+                            />
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <ControlLabel>Last</ControlLabel>
-                            <FormControl type='text' value={this.state.last}/>
+                            <FormControl
+                                type='text'
+                                value={data[ADMIN_LAST_NAME]}
+                                onChange={this.handleFieldChange.bind(this, ADMIN_LAST_NAME)}
+                            />
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <ControlLabel>Title</ControlLabel>
-                            <FormControl type='text' value={this.state.title}/>
+                            <FormControl
+                                type='text'
+                                value={data[ADMIN_TITLE]}
+                                onChange={this.handleFieldChange.bind(this, ADMIN_TITLE)}
+                            />
                         </FormGroup>
                     </Col>
                 </Row>
@@ -145,13 +171,17 @@ class HotelInfo extends React.Component {
                     <Col md={6} sm={12}>
                         <FormGroup className='mt20'>
                             <ControlLabel className='highlight-label'>Email</ControlLabel>
-                            <FormControl type='email' value={this.state.email}/>
+                            <FormControl
+                                type='email'
+                                value={data[EMAIL]}
+                                onChange={this.handleFieldChange.bind(this, EMAIL)}
+                            />
                         </FormGroup>
                     </Col>
                 </Row>
 
                 <div className='text-center mt20'>
-                    <Button bsStyle='link' className='mr20'>Next</Button>
+                    <Button bsStyle='link' className='mr20' onClick={this.handleNextClick.bind(this)}>Next</Button>
                     <Button bsStyle='primary'>Save</Button>
                 </div>
             </form>
@@ -160,11 +190,13 @@ class HotelInfo extends React.Component {
 }
 
 HotelInfo.PropTypes = {
-    hotelInfo: PropTypes.object.required
+    hotelInfo: PropTypes.object.required,
+    saveHotelInfo: PropTypes.func.required
 };
 
 HotelInfo.defaultProps = {
-    hotelInfo: {}
+    hotelInfo: {},
+    saveHotelInfo: () => {}
 }
 
 export default HotelInfo;
