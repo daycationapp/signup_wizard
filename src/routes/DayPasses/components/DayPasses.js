@@ -98,12 +98,15 @@ class DayPasses extends React.Component {
         this.setState({ isFetching: true });
         API.post(dayPasses).then(response => {
             this.props.saveDayPasses(dayPasses);
-            this.setState({ isFetching: false });
+            this.setState({
+                isFetching: false,
+                alert: {type: 'success', message: 'The data has been saved successfully.'}
+            });
         }).catch(error => {
             this.setState({
-                alert: 'Failed to save. Please try again later'
+                isFetching: false,
+                alert: {type: 'error', message: 'Failed to save. Please try again later'}
             });
-            this.setState({ isFetching: false });
         });
     }
 
@@ -114,8 +117,8 @@ class DayPasses extends React.Component {
     renderAlert() {
         if (this.state.alert) {
             return (
-                <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss.bind(this)}>
-                    <p>{this.state.alert}</p>
+                <Alert bsStyle={this.state.alert.type} onDismiss={this.handleAlertDismiss.bind(this)}>
+                    <p>{this.state.alert.message}</p>
                 </Alert>
             );
         }
