@@ -34,6 +34,8 @@ class HotelInfo extends React.Component {
     }
 
     handleNextClick() {
+        let hotelInfo = {...this.state.hotelInfo};
+        this.props.saveHotelInfo(hotelInfo);
         browserHistory.push('/day-passes');
     }
 
