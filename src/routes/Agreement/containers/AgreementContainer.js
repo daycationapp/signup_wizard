@@ -12,7 +12,10 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        agreement: state.agreement || {}
+        agreement: state.agreement || {},
+        hotelInfo: state.hotelInfo || {},
+        dayPasses: state.dayPasses || {},
+        cabanas: state.cabanas || {}
     };
 };
 
