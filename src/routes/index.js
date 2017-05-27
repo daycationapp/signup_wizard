@@ -1,5 +1,5 @@
 // We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/PageLayout/PageLayout';
+import PageLayoutContainer from '../layouts/PageLayout/PageLayoutContainer';
 import Home from './Home';
 import DayPassesRoute from './DayPasses';
 import CabanasRoute from './Cabanas';
@@ -10,7 +10,7 @@ import AgreementRoute from './Agreement';
 
 export const createRoutes = (store) => ({
   path        : '/',
-  component   : CoreLayout,
+  component   : PageLayoutContainer,
   indexRoute  : Home(store),
   childRoutes : [
     DayPassesRoute(store),
