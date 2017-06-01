@@ -12,10 +12,10 @@ class PageLayout extends React.Component {
         return (
             <div className='container text-center'>
                 <div className='nav-back'>
-                    <Link to='/'>
+                    <a href="http://www.google.com">
                         Go To Management Software Demo
                         <FontAwesomeIcon icon='long-arrow-right' />
-                    </Link>
+                    </a>
                 </div>
                 <div className='row'>
                     <div className='col-md-12'>

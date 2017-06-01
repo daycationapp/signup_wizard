@@ -1,8 +1,13 @@
 import { connect } from 'react-redux';
 import HotelInfo from '../components/HotelInfo';
+import { saveHotelInfo } from '../modules/hotelInfo';
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        saveHotelInfo: (hotelInfo) => {
+            dispatch(saveHotelInfo(hotelInfo));
+        }
+    };
 };
 
 const mapStateToProps = (state) => {
