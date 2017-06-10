@@ -1,5 +1,5 @@
 import React from 'react';
-import className from 'className';
+import className from 'classname';
 
 export default class FontAwesomeIcon extends React.Component {
     constructor(...args) {
