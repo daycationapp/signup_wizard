@@ -47,3 +47,26 @@
   font-weight: 700;
   font-size: 1.1rem;
 }
+
+.DaycationView {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+
+  .DaycationLogo {
+    width: 300px;
+    height: auto;
+  }
+}
+
+.DaycationAlert {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+
+
+}
