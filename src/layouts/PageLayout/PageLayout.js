@@ -9,7 +9,8 @@ class PageLayout extends React.Component {
 
         this.tok = this.props.location.query.tok;
         this.state = {
-            showChildren: false
+            showChildren: false,
+            loading: true
         }
     }
 
@@ -30,7 +31,9 @@ class PageLayout extends React.Component {
             }))
             .then(function(j){
                 if(j.status == "success"){
-                    this.setState({showChildren: true})
+                    this.setState({loading: false, showChildren: true});
+                } else {
+                    this.setState({loading: false});
                 }
             }.bind(this))
             .catch((err)=>{
@@ -67,6 +70,12 @@ class PageLayout extends React.Component {
                     </div>
                 </div>
             );
+        } else if(this.state.loading){
+            return(
+                <div className='loader'>
+                    Loading
+                </div>
+            )
         } else {
             return(
                 <div className='DaycationView'>
