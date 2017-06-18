@@ -3,6 +3,8 @@ import { IndexLink, Link } from 'react-router';
 import FontAwesomeIcon from '../../components/FontAwesomeIcon';
 import './PageLayout.scss';
 
+const VALIDATE_AGREEMENT_API = "https://falconheavy.daycationapp.com/api/validate_agreement_token"
+
 class PageLayout extends React.Component {
     constructor(...args) {
         super(...args);
@@ -23,7 +25,7 @@ class PageLayout extends React.Component {
     }
 
     validate(token){
-        fetch("https://daycay.co:8080/validate_agreement_token?token=" + token)
+        fetch(VALIDATE_AGREEMENT_API + "?token=" + token)
             .then((function(response){
                 if(response.ok){
                     return response.json()
