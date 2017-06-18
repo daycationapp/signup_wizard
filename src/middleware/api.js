@@ -1,4 +1,4 @@
-const ENDPOINT = 'https://daycay.co:8080/hotels/agreement?type=save'
+const ENDPOINT = 'https://falconheavy.daycationapp.com/api//hotels/agreement?type=save'
 
 export function post (body) {
     let bodyData = new FormData();
