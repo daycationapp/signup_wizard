@@ -23,7 +23,7 @@ class PageLayout extends React.Component {
     }
 
     validate(token){
-        fetch("https://daycay.co:8080/validate_agreement_token?token=" + token)
+        fetch("https://daycationapp.com/api/validate_agreement_token?token=" + token)
             .then((function(response){
                 if(response.ok){
                     return response.json()
