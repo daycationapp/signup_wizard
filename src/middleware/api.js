@@ -8,6 +8,7 @@ export function post (body) {
 
     return fetch(ENDPOINT, {
         method: 'POST',
+        credentials: true,
         body: bodyData
     });
 }
