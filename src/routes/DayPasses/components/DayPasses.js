@@ -98,10 +98,18 @@ class DayPasses extends React.Component {
         this.setState({ isFetching: true });
         API.post(dayPasses).then(response => {
             this.props.saveDayPasses(dayPasses);
-            this.setState({
-                isFetching: false,
-                alert: {type: 'success', message: 'The data has been saved successfully.'}
-            });
+            if(typeof response == "string") response = JSON.parse(response);
+            if(response.status == "success"){
+                this.setState({
+                    isFetching: false,
+                    alert: {type: 'success', message: 'The data has been saved successfully.'}
+                });
+            } else {
+                this.setState({
+                    isFetching: false,
+                    alert: {type: 'danger', message: response.message }
+                });
+            }
         }).catch(error => {
             this.setState({
                 isFetching: false,
