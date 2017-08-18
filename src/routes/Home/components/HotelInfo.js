@@ -52,7 +52,7 @@ class HotelInfo extends React.Component {
         }).catch(error => {
             this.setState({
                 isFetching: false,
-                alert: {type: 'error', message: 'Failed to save. Please try again later'}
+                alert: {type: 'danger', message: 'Failed to save. Please try again later'}
             });
         });
     }
