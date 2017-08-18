@@ -43,10 +43,11 @@ class HotelInfo extends React.Component {
         let hotelInfo = {...this.state.hotelInfo};
 
         this.setState({ isFetching: true });
-        API.post(hotelInfo).then(response => {
+        API.post(hotelInfo).then(response => response.json())
+        .then((data)=> {
             this.props.saveHotelInfo(hotelInfo);
-            if(typeof response == "string") response = JSON.parse(response);
-            if(response.status == "success"){
+            if(typeof data == "string") data = JSON.parse(data);
+            if(data.status == "success"){
                 this.setState({
                     isFetching: false,
                     alert: {type: 'success', message: 'The data has been saved successfully.'}
@@ -54,7 +55,7 @@ class HotelInfo extends React.Component {
             } else {
                 this.setState({
                     isFetching: false,
-                    alert: {type: 'danger', message: response.message }
+                    alert: {type: 'danger', message: data.message }
                 });
             }
         }).catch(error => {

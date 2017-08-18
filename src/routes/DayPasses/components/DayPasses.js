@@ -96,7 +96,7 @@ class DayPasses extends React.Component {
     handleSaveClick() {
         let dayPasses = {...this.state.dayPasses};
         this.setState({ isFetching: true });
-        API.post(dayPasses).then(response => {
+        API.post(dayPasses).then(response => response.json()).then(response => {
             this.props.saveDayPasses(dayPasses);
             if(typeof response == "string") response = JSON.parse(response);
             if(response.status == "success"){

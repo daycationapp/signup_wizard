@@ -107,7 +107,7 @@ class Agreement extends React.Component {
         );
 
         this.setState({ isFetching: true });
-        API.post(all).then(response => {
+        API.post(all).then(response => response.json()).then(response => {
             this.props.saveAgreement(agreement);
             if(typeof response == "string") response = JSON.parse(response);
             if(response.status == "success"){

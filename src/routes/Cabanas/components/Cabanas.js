@@ -37,7 +37,7 @@ class Cabanas extends React.Component {
         let cabanas = {...this.state.cabanas};
 
         this.setState({ isFetching: true });
-        API.post(cabanas).then(response => {
+        API.post(cabanas).then(response => response.json()).then(response => {
             this.props.saveCabanas(cabanas);
             if(typeof response == "string") response = JSON.parse(response);
             if(response.status == "success"){
