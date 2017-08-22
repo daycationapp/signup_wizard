@@ -3,7 +3,7 @@ import { IndexLink, Link } from 'react-router';
 import FontAwesomeIcon from '../../components/FontAwesomeIcon';
 import './PageLayout.scss';
 
-const VALIDATE_AGREEMENT_API = "https://falconheavy.daycationapp.com/api/validate_agreement_token"
+const VALIDATE_AGREEMENT_API = (__DEV__ ? "http://localhost:8081/" : "https://falconheavy.daycationapp.com/") + "api/validate_agreement_token"
 
 class PageLayout extends React.Component {
     constructor(...args) {

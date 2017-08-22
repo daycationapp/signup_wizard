@@ -163,6 +163,8 @@ class Agreement extends React.Component {
                             onChange={this.handleFieldChange.bind(this, MAXIMUM_AVAILABILITY)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -175,6 +177,8 @@ class Agreement extends React.Component {
                             onChange={this.handleFieldChange.bind(this, MINIMUM_PASSES)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -192,6 +196,8 @@ class Agreement extends React.Component {
                             onChange={this.handleFieldChange.bind(this, INFLUENCERS)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -237,6 +243,8 @@ class Agreement extends React.Component {
                             onChange={this.handleFieldChange.bind(this, PAY_MONTHLY)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -252,6 +260,8 @@ class Agreement extends React.Component {
                             onChange={this.handleFieldChange.bind(this, PARTICIPATE)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 

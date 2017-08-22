@@ -207,6 +207,8 @@ class DayPasses extends React.Component {
                             onChange={this.handleFieldChange.bind(this, POOLSIDE_SERVICE)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -219,6 +221,8 @@ class DayPasses extends React.Component {
                         <ControlLabel className='highlight-label'>Is free Wifi offered by hotel at the pool area?</ControlLabel>
                         <FormControl componentClass='select' className='fixed-control'>
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -240,6 +244,8 @@ class DayPasses extends React.Component {
                             onChange={this.handleFieldChange.bind(this, DISCOUNT_SERVICE)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -263,12 +269,11 @@ class DayPasses extends React.Component {
                         <br />
                         <ControlLabel>What price will you offer for day passes on a weekday during peak season?</ControlLabel>
                         <FormControl
-                            componentClass='select'
+                            componentClass='input'
                             className='fixed-control'
                             value={data[WEEKDAY_PEAK_PRICE]}
                             onChange={this.handleFieldChange.bind(this, WEEKDAY_PEAK_PRICE)}
                         >
-                            <option value='select'>select</option>
                         </FormControl>
                     </FormGroup>
 
@@ -277,12 +282,11 @@ class DayPasses extends React.Component {
                         <br />
                         <ControlLabel>What price will you offer for day passes on weekends during peak season?</ControlLabel>
                         <FormControl
-                            componentClass='select'
+                            componentClass='input'
                             className='fixed-control'
                             value={data[WEEKEND_PEAK_PRICE]}
                             onChange={this.handleFieldChange.bind(this, WEEKEND_PEAK_PRICE)}
                         >
-                            <option value='select'>select</option>
                         </FormControl>
                     </FormGroup>
 
@@ -291,26 +295,24 @@ class DayPasses extends React.Component {
                         <br />
                         <ControlLabel>What price will you offer for day passes on a weekday during off-peak season?</ControlLabel>
                         <FormControl
-                            componentClass='select'
+                            componentClass='inpuy'
                             className='fixed-control'
                             value={data[WEEKDAY_OFF_PEAK_PRICE]}
                             onChange={this.handleFieldChange.bind(this, WEEKDAY_OFF_PEAK_PRICE)}
                         >
-                            <option value='select'>select</option>
                         </FormControl>
                     </FormGroup>
 
                     <FormGroup className='mt30'>
-                        <ControlLabel className='highlight-label'>Weekend Peak Season price</ControlLabel>
+                        <ControlLabel className='highlight-label'>Weekend Off-Peak Season price</ControlLabel>
                         <br />
                         <ControlLabel>What price will you offer for day passes on weekends during off-peak season?</ControlLabel>
                         <FormControl
-                            componentClass='select'
+                            componentClass='input'
                             className='fixed-control'
                             value={data[WEEKEND_OFF_PEAK_PRICE]}
                             onChange={this.handleFieldChange.bind(this, WEEKEND_OFF_PEAK_PRICE)}
                         >
-                            <option value='select'>select</option>
                         </FormControl>
                     </FormGroup>
 
@@ -334,6 +336,8 @@ class DayPasses extends React.Component {
 
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Children</ControlLabel>
+                        <br />
+                        <ControlLabel>Are children allowed?</ControlLabel>
                         <FormControl
                             componentClass='select'
                             className='fixed-control'
@@ -341,6 +345,8 @@ class DayPasses extends React.Component {
                             onChange={this.handleFieldChange.bind(this, CHILDREN)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -400,6 +406,8 @@ class DayPasses extends React.Component {
                             onChange={this.handleFieldChange.bind(this, PRIVATE_EVENTS)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 

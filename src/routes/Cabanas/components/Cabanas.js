@@ -3,12 +3,12 @@ import { Row, Col, FormGroup, ControlLabel, FormControl, Button, Alert } from 'r
 import { browserHistory } from 'react-router';
 import * as API from '../../../middleware/api';
 
-const PLAN = 'plan';
-const COUNT = 'count';
-const OPTION = 'option';
-const PACKAGES = 'packages';
-const AVAILABILITY = 'availability';
-const HOURS = 'hours';
+const PLAN = 'offeringCabanas';
+const COUNT = 'cabanaCount';
+const OPTION = 'cabanaSeasonality';
+const PACKAGES = 'cabanaPackages';
+const AVAILABILITY = 'cabanaAvailability';
+const HOURS = 'cabanaHours';
 
 class Cabanas extends React.Component {
     constructor(...args) {
@@ -94,6 +94,8 @@ class Cabanas extends React.Component {
                             onChange={this.handleFieldChange.bind(this, PLAN)}
                         >
                             <option value='select'>select</option>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -119,6 +121,8 @@ class Cabanas extends React.Component {
                             onChange={this.handleFieldChange.bind(this, OPTION)}
                         >
                             <option value='select'>select</option>
+                            <option value='seasonal'>Seasonal</option>
+                            <option value='year-round'>Year-round</option>
                         </FormControl>
                     </FormGroup>
 
@@ -137,10 +141,10 @@ class Cabanas extends React.Component {
                     </FormGroup>
 
                     <FormGroup className='mt30'>
-                        <ControlLabel className='highlight-label'>Canaba Availability</ControlLabel>
+                        <ControlLabel className='highlight-label'>Cabana Availability</ControlLabel>
                         <br />
                         <ControlLabel>
-                            Based on the general trends at the hotel, pre-populate the maximum number of cabanas to be offered to day guests by range of months and week/weekday in the field below.
+                            Based on the general trends at the hotel, pre-populate the maximum number of cabanas to be offered to day guests by range of months and weekend/weekday in the field below.
                             You will be able to set the number for individual days as well as block out days in the calendar but this creates the general framework as a starting point.
                         </ControlLabel>
                         <FormControl
