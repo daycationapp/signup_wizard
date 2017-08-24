@@ -52,8 +52,9 @@ class Landing extends React.Component {
           <div className='DaycationLandingBackground' style={{ backgroundImage: 'url(' + this.state.backgroundImage + ')' }}>
           </div>
           <div className='DaycationLandingContent flex flexcolumn-nowrap'>
-            <div className='DaycationHeader'>
-              Ancillary Revenue. <b>Made Easy.</b>
+            <div className='DaycationHeader text-center'>
+              Ancillary Revenue For Your Hotel. <b>Made Easy.</b><br /><br />
+              <div className='DaycationHeader__Sub'>Join Hyatt, SBE, Denihan, and others in making amenities profitable.</div>
             </div>
             <a href='#typeform'><button className='LearnMore'>Learn More</button></a>
           </div>
@@ -64,7 +65,7 @@ class Landing extends React.Component {
           <hr id='BeforeContactUs' style={{ border: '1px solid #FF6e61', width: '60%' }} />
           <div className='ContactUsContainer flex flexrow-nowrap'>
             <div className='ContactUs__Header'>For even more information, you can </div>
-            <a href='mailto:hotels@daycationapp.com'><button className='EmailButton'>email Us</button></a>
+            <a href='mailto:hotels@daycationapp.com'><button className='EmailButton'>email us</button></a>
           </div>
         </div>
       </div>

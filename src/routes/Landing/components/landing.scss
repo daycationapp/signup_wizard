@@ -66,16 +66,30 @@ div.DaycationLandingBackground {
 div.DaycationHeader {
   font-size: 20pt;
 
+  @media screen and (min-width: 1024px){
+    position: relative;
+    top: 100px;
+  }
+
   @media screen and (max-width: 1000px){
     font-size: 16pt;
     margin-bottom: 25px;
+  }
+
+  .DaycationHeader__Sub {
+    font-size: 16pt;
   }
 }
 
 .DaycationLandingContent {
   position: absolute;
   height: 100vh;
-  width: 100%;
+  width: 50%;
+  transform: translateX(50%);
+  @media screen and (max-width: 768px){ 
+    transform: translateX(0);
+    width: 100%;
+  }
   top: 0;
   align-items: center;
   justify-content: space-around;
@@ -126,6 +140,7 @@ div.DaycationHeader {
         top: 100%;
         left: 50%;
         z-index: 1;
+        pointer-events: none;
       }
     }
   }
@@ -174,6 +189,7 @@ hr#BeforeContactUs::before {
     -moz-transform: translateY(-100%);
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
+    pointer-events: none;
   }
 }
 
