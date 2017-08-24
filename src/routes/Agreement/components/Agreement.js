@@ -17,6 +17,8 @@ const DAYCATION_BY = 'daycationBy';
 const CONTRACTOR_BY = 'contractorBy';
 const CONTRACTOR_NAME = 'contractorName';
 const CONTRACTOR_TITLE = 'contractorTitle';
+const GUEST_CHECKED_IN = 'guestCheckedIn';
+const CHECKIN_EMAIL = 'emailAtCheckinPlace';
 
 const places = [
     'Front desk',
@@ -24,6 +26,13 @@ const places = [
     'Concierge',
     'Bell desk',
     'Recreation Desk',
+    'Other'
+];
+
+const GUEST_CHECKED_IN_VALUES = [
+    'Hotel key to access pool and amenities',
+    'Wristbands',
+    'Neither',
     'Other'
 ];
 
@@ -149,7 +158,7 @@ class Agreement extends React.Component {
             <div>
                 {this.renderAlert()}
                 <form className='signup'>
-                    <FormGroup>
+                    {/* <FormGroup>
                         <ControlLabel className='highlight-label'>Day guests can book up to 10 weeks in advance. Is this acceptable?</ControlLabel>
                         <br />
                         <ControlLabel>
@@ -166,7 +175,7 @@ class Agreement extends React.Component {
                             <option value={true}>Yes</option>
                             <option value={false}>No</option>
                         </FormControl>
-                    </FormGroup>
+                    </FormGroup> */}
 
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Do you agree to offer a minimum of 45 day passes per month on Daycation?</ControlLabel>
@@ -233,6 +242,27 @@ class Agreement extends React.Component {
                             </FormGroup>
                         </Col>
                     </Row>
+
+                    <Row>
+                        <Col md={6} sm={12}>
+                            <FormGroup className='mt30'>
+                                <ControlLabel className='highlight-label'>Check-in location email:</ControlLabel>
+                                <ControlLabel>How can we best reach the person checking Daycation guests in?</ControlLabel>
+                                <FormControl
+                                    type='input'
+                                    value={data[CHECKIN_EMAIL]}
+                                    onChange={this.handleFieldChange.bind(this, CHECKIN_EMAIL)}
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+
+                    <FormGroup className='mt30'>
+                        <ControlLabel className='highlight-label'>What do you guests currenly receive when they checked in?</ControlLabel>
+                        <br />
+                        <ControlLabel>Select all that apply.</ControlLabel>
+                        {this.renderCheckboxes(GUEST_CHECKED_IN_VALUES, GUEST_CHECKED_IN)}
+                    </FormGroup>
 
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Daycation will pay Hotel total balances due monthly. Is this acceptable?</ControlLabel>

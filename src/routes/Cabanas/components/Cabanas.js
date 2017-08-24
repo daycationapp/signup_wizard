@@ -140,7 +140,7 @@ class Cabanas extends React.Component {
                         />
                     </FormGroup>
 
-                    <FormGroup className='mt30'>
+                    {/* <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Cabana Availability</ControlLabel>
                         <br />
                         <ControlLabel>
@@ -153,7 +153,7 @@ class Cabanas extends React.Component {
                             value={data[AVAILABILITY]}
                             onChange={this.handleFieldChange.bind(this, AVAILABILITY)}
                         />
-                    </FormGroup>
+                    </FormGroup> */}
 
                     <Row>
                         <Col md={6} sm={12}>

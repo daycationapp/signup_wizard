@@ -20,6 +20,26 @@ body {
   box-sizing: inherit;
 }
 
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-one * {
+  flex: 1;
+}
+
+.flexrow-nowrap {
+  flex-flow: row nowrap;
+}
+
+.flexcolumn-nowrap {
+  flex-flow: column nowrap;
+}
+
 form.signup {
   .form-group {
     text-align: left;
@@ -36,6 +56,11 @@ form.signup {
 
   .fixed-control {
     width: 300px;
+  }
+
+  input.extra-info {
+    width: 50px;
+    margin-left: 1rem;
   }
 }
 

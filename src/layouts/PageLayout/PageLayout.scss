@@ -14,8 +14,13 @@
 }
 
 .nav-back {
-  text-align: right;
+  text-align: center;
   padding: 10px 0px;
+
+  img {
+    width: 75px;
+    height: auto;
+  }
 }
 
 .main {

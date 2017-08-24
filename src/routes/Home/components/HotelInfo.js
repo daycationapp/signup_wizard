@@ -82,10 +82,12 @@ class HotelInfo extends React.Component {
 
     render() {
         const data = {...this.state.hotelInfo};
+        data[COUNTRY] = 'US'
         return (
             <div>
                 {this.renderAlert()}
                 <form className='signup'>
+                    <ControlLabel>Filling out this form takes 10 to 15 minutes.</ControlLabel><br /><br />
                     <FormGroup>
                         <ControlLabel className='highlight-label'>Hotel Name</ControlLabel>
                         <FormControl
@@ -119,7 +121,7 @@ class HotelInfo extends React.Component {
                     </FormGroup>
 
                     <FormGroup>
-                        <ControlLabel>Address Line2</ControlLabel>
+                        <ControlLabel>Address Line 2</ControlLabel>
                         <FormControl
                             type='text'
                             value={data[ADDRESS_LINE2]}

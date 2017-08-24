@@ -32,26 +32,6 @@ div#DaycationHotelsLanding {
   box-shadow: 1px 1px 10px rgb(170,170,170);
 }
 
-.flex {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-
-.flex-one * {
-  flex: 1;
-}
-
-.flexrow-nowrap {
-  flex-flow: row nowrap;
-}
-
-.flexcolumn-nowrap {
-  flex-flow: column nowrap;
-}
-
 div.DaycationLandingBackground {
   justify-content: space-between;
   align-items: center;

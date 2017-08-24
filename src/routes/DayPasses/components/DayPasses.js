@@ -22,17 +22,22 @@ const WEEKEND_OFF_PEAK_PRICE = 'weekendOffPeakPrice';
 const DAYS_HAVE_WEEKEND_PRICE = 'daysHaveWeekendPrice';
 const PEAK_SEASON_MONTHS = 'peakSeasonMonths';
 const CHILDREN = 'children';
-const CHILDREN_AGE_PRICE = 'childrenAgePrice';
+const CHILDREN_PRICE = 'childrenPrice';
+const CHILDREN_AGE = 'childrenAge';
 const AVAILABILITY = 'availability';
 const POOL_HOURS = 'poolHours';
 const PRIVATE_EVENTS = 'privateEvents';
 const BOOKING_EMAIL = 'bookingEmail';
+const VALET_FEE = 'valetPrice';
+const SELF_PARKING_FEE = 'selfParkingFee';
+const DISCOUNTED_VALET = 'discountedValetFee';
 
 const PARKING_VALUES = [
     'Valet',
     'Complimentary Self-Parking',
     'Self-Parking for a fee',
-    'Street Parking'
+    'Street Parking',
+    'Discounted Valet',
 ];
 
 const GUEST_CHECKED_IN_VALUES = [
@@ -152,7 +157,7 @@ class DayPasses extends React.Component {
             <div>
                 {this.renderAlert()}
                 <form className='signup'>
-                    <Row>
+                    {/* <Row>
                         <Col md={6} sm={12}>
                             <FormGroup>
                                 <ControlLabel className='highlight-label'>Number of pool chairs on property</ControlLabel>
@@ -163,14 +168,13 @@ class DayPasses extends React.Component {
                                 />
                             </FormGroup>
                         </Col>
-                    </Row>
+                    </Row> */}
 
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Pool amenities included in the day pass:</ControlLabel>
                         <br />
                         <ControlLabel>
-                            Please list all pools and hot tubs to be included in day pass along with all pool features (waterslides, lazy river, etc).
-                            Exclude separate spa pools.
+                            Please list all pools and hot tubs to be included in day pass along with all pool features.
                         </ControlLabel>
                         <FormControl
                             componentClass="textarea"
@@ -184,7 +188,7 @@ class DayPasses extends React.Component {
                         <ControlLabel className='highlight-label'>Other features, amenities, and activities included in day pass:</ControlLabel>
                         <br />
                         <ControlLabel>
-                            Please list other amenities and activities that are currenly complimentary to night guests to be included in day pass (fitness center, playground, game room, ping pong table, etc).
+                            Please list other amenities and activities that are currenly complimentary to night guests to be included in day pass:
                         </ControlLabel>
                         <FormControl
                             componentClass="textarea"
@@ -214,7 +218,44 @@ class DayPasses extends React.Component {
 
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Please select the parking option provided at the hotel.</ControlLabel>
-                        {this.renderCheckboxes(PARKING_VALUES, PARKING)}
+                        <FormGroup className='flex flexrow-nowrap'>
+                            <Checkbox 
+                                checked={this.state.dayPasses[PARKING] && this.state.dayPasses[PARKING].indexOf(PARKING_VALUES[0]) > -1}
+                                onChange={(e) => this.handleCheckboxClick(PARKING, PARKING_VALUES[0])}
+                            >{PARKING_VALUES[0]}</Checkbox>
+                            <FormControl 
+                                className='extra-info' 
+                                componentClass='input' 
+                                placeholder='$ ..' 
+                                onChange={this.handleFieldChange.bind(this, VALET_FEE)}
+                            ></FormControl>
+                        </FormGroup>
+                        <FormGroup>
+                            <Checkbox 
+                                checked={this.state.dayPasses[PARKING] && this.state.dayPasses[PARKING].indexOf(PARKING_VALUES[1]) > -1}
+                                onChange={(e) => this.handleCheckboxClick(PARKING, PARKING_VALUES[1])}
+                            >{PARKING_VALUES[1]}</Checkbox>
+                        </FormGroup>
+                        <FormGroup className='flex flexrow-nowrap'>
+                            <Checkbox 
+                                checked={this.state.dayPasses[PARKING] && this.state.dayPasses[PARKING].indexOf(PARKING_VALUES[2]) > -1}
+                                onChange={(e) => this.handleCheckboxClick(PARKING, PARKING_VALUES[2])}
+                            >{PARKING_VALUES[2]}</Checkbox>
+                            <FormControl className='extra-info' componentClass='input' placeholder='$ ..' onChange={this.handleFieldChange.bind(this, SELF_PARKING_FEE)} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Checkbox 
+                                checked={this.state.dayPasses[PARKING] && this.state.dayPasses[PARKING].indexOf(PARKING_VALUES[3]) > -1}
+                                onChange={(e) => this.handleCheckboxClick(PARKING, PARKING_VALUES[3])}
+                            >{PARKING_VALUES[3]}</Checkbox>
+                        </FormGroup>
+                        <FormGroup className='flex flexrow-nowrap'>
+                            <Checkbox 
+                                checked={this.state.dayPasses[PARKING] && this.state.dayPasses[PARKING].indexOf(PARKING_VALUES[4]) > -1}
+                                onChange={(e) => this.handleCheckboxClick(PARKING, PARKING_VALUES[4])}
+                            >{PARKING_VALUES[4]}</Checkbox>
+                            <FormControl className='extra-info' componentClass='input' placeholder='$ ..' onChange={this.handleFieldChange.bind(this, DISCOUNTED_VALET)} />
+                        </FormGroup>
                     </FormGroup>
 
                     <FormGroup className='mt30'>
@@ -226,26 +267,23 @@ class DayPasses extends React.Component {
                         </FormControl>
                     </FormGroup>
 
-                    <FormGroup className='mt30'>
+                    {/* <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>What do you guests currenly receive when they checked in?</ControlLabel>
                         <br />
                         <ControlLabel>Select all that apply.</ControlLabel>
                         {this.renderCheckboxes(GUEST_CHECKED_IN_VALUES, GUEST_CHECKED_IN)}
-                    </FormGroup>
+                    </FormGroup> */}
 
                     <FormGroup className='mt30'>
-                        <ControlLabel className='highlight-label'>Will you offer a 15% discount on restaurants, retail shops and spa services?</ControlLabel>
+                        <ControlLabel className='highlight-label'>What discount (%) will you offer Daycation guests on restaurants, retail shops and spa services?</ControlLabel>
                         <br />
                         <ControlLabel>Offering discounts not only encourages spending by day guests but helps track revenue from day guests at the hotel.</ControlLabel>
                         <FormControl
-                            componentClass='select'
+                            componentClass='input'
                             className='fixed-control'
                             value={data[DISCOUNT_SERVICE]}
                             onChange={this.handleFieldChange.bind(this, DISCOUNT_SERVICE)}
                         >
-                            <option value='select'>select</option>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
                         </FormControl>
                     </FormGroup>
 
@@ -262,9 +300,20 @@ class DayPasses extends React.Component {
                         </Col>
                     </Row>
 
-                    <h4 className='subtitle'>Pricing</h4>
-
                     <FormGroup className='mt30'>
+                        <ControlLabel className='highlight-label'>Pricing</ControlLabel>
+                        <br />
+                        <ControlLabel>What price will you offer for day passes?</ControlLabel>
+                        <FormControl
+                            componentClass='input'
+                            className='fixed-control'
+                            value={data[WEEKEND_PEAK_PRICE]}
+                            onChange={this.handleFieldChange.bind(this, WEEKEND_PEAK_PRICE)}
+                        >
+                        </FormControl>
+                    </FormGroup>
+
+                    {/* <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Weekday Peak Season price</ControlLabel>
                         <br />
                         <ControlLabel>What price will you offer for day passes on a weekday during peak season?</ControlLabel>
@@ -295,7 +344,7 @@ class DayPasses extends React.Component {
                         <br />
                         <ControlLabel>What price will you offer for day passes on a weekday during off-peak season?</ControlLabel>
                         <FormControl
-                            componentClass='inpuy'
+                            componentClass='input'
                             className='fixed-control'
                             value={data[WEEKDAY_OFF_PEAK_PRICE]}
                             onChange={this.handleFieldChange.bind(this, WEEKDAY_OFF_PEAK_PRICE)}
@@ -319,9 +368,9 @@ class DayPasses extends React.Component {
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>What days should have the weekend price?</ControlLabel>
                         {this.renderCheckboxes(DAYS_HAVE_WEEKEND_PRICE_VALUES, DAYS_HAVE_WEEKEND_PRICE)}
-                    </FormGroup>
+                    </FormGroup> */}
 
-                    <Row>
+                    {/* <Row>
                         <Col md={6} sm={12}>
                             <FormGroup className='mt30'>
                                 <ControlLabel className='highlight-label'>What months are peak season?</ControlLabel>
@@ -332,7 +381,7 @@ class DayPasses extends React.Component {
                                 />
                             </FormGroup>
                         </Col>
-                    </Row>
+                    </Row> */}
 
                     <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Children</ControlLabel>
@@ -352,14 +401,24 @@ class DayPasses extends React.Component {
 
                     <Row>
                         <Col md={6} sm={12}>
+                        <FormGroup className='mt30'>
+                                <ControlLabel className='highlight-label'>Children price</ControlLabel>
+                                <br />
+                                <ControlLabel>How much should children pay for a day pass?</ControlLabel>
+                                <FormControl
+                                    type='text'
+                                    value={data[CHILDREN_PRICE]}
+                                    onChange={this.handleFieldChange.bind(this, CHILDREN_PRICE)}
+                                />
+                            </FormGroup>
                             <FormGroup className='mt30'>
                                 <ControlLabel className='highlight-label'>Children ages</ControlLabel>
                                 <br />
                                 <ControlLabel>What age children should have the children price?</ControlLabel>
                                 <FormControl
                                     type='text'
-                                    value={data[CHILDREN_AGE_PRICE]}
-                                    onChange={this.handleFieldChange.bind(this, CHILDREN_AGE_PRICE)}
+                                    value={data[CHILDREN_AGE]}
+                                    onChange={this.handleFieldChange.bind(this, CHILDREN_AGE)}
                                 />
                             </FormGroup>
                         </Col>
@@ -368,16 +427,14 @@ class DayPasses extends React.Component {
                     <h4 className='subtitle'>Availability / Maximums</h4>
 
                     <FormGroup className='mt30'>
+                        <ControlLabel className='highlight-label'>How many day passes do you want to offer on a daily basis?</ControlLabel>
                         <ControlLabel>
-                            Based on the general trends at the hotel, pre-populate your availability calendar with the maximum amount of the day passes
-                            to be offered to day guests for weekdays and weekends and peak and off-peak months.
                             You will be able to change the number of individuals days as well as block out days in the calendar 
                             but this creates the general framework as a starting point.
                         </ControlLabel>
                         <FormControl 
                             componentClass='textarea' 
                             rows={5} 
-                            placeholder='(i.e., Weekdays October-April: 50 passes; Weekends October-April: 40 passes; Weekdays May-Sept: 30 passes; Weekends Map-Sept: 20 passes; Mondays year-round: 50 passes)'
                             value={data[AVAILABILITY]}
                             onChange={this.handleFieldChange.bind(this, AVAILABILITY)}
                         />
@@ -397,7 +454,7 @@ class DayPasses extends React.Component {
                         </Col>
                     </Row>
 
-                    <FormGroup className='mt30'>
+                    {/* <FormGroup className='mt30'>
                         <ControlLabel className='highlight-label'>Does the resort ever hold private events at the pool area?</ControlLabel>
                         <FormControl
                             componentClass='select'
@@ -409,7 +466,7 @@ class DayPasses extends React.Component {
                             <option value={true}>Yes</option>
                             <option value={false}>No</option>
                         </FormControl>
-                    </FormGroup>
+                    </FormGroup> */}
 
                     <Row>
                         <Col md={6} sm={12}>
