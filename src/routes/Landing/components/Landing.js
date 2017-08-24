@@ -1,4 +1,5 @@
 import React from 'react'
+import './landing.scss'
 
 class Landing extends React.Component {
   constructor (...args) {
@@ -13,9 +14,13 @@ class Landing extends React.Component {
 
   handleResize () {
     var backgroundImage
-    if (window.innerWidth < 1440 && window.innerWidth > 425) {
+    if (window.innerWidth >= 992) {
       backgroundImage = '/imgs/background1440.png'
-    } else if (window.innerWidth <= 425) {
+    } else if (window.innerWidth < 992 && window.innerWidth > 768) {
+      backgroundImage = '/imgs/background992.png'
+    } else if (window.innerWidth <= 768 && window.innerWidth > 500) {
+      backgroundImage = '/imgs/background768.png'
+    } else if (window.innerWidth <= 500) {
       backgroundImage = '/imgs/background425.png'
     }
     this.setState({
@@ -24,6 +29,7 @@ class Landing extends React.Component {
   }
 
   componentDidMount () {
+    this.handleResize()
     window.addEventListener('resize', this.handleResize, true)
   }
 
@@ -33,15 +39,26 @@ class Landing extends React.Component {
 
   render () {
     return (
-      <div>
-        <div id='DaycationHeader' className='visible_desktop flex flexcolumn-nowrap text-center'>
-          <img src='/imgs/DaycationSymbol.RGB.Orange.png' alt='pineapple' />
-          Daycation. Generate ancillary revenue for your hotels, at $0 extra cost.
-        </div>
+      <div id='Landing' style={{ backgroundColor: 'white' }}>
+        <nav className='DaycationNav flex flexrow-nowrap'>
+          <div className='DaycationNav__Left'>
+            <img src="/imgs/DaycationSymbol.RGB.Orange.png" alt='Daycation Pineapple' />
+          </div>
+          <div className='DaycationNav__Right'>
+            <a href='#typeform'>Get Started</a>
+          </div>
+        </nav>
         <div id='DaycationHotelsLanding'>
           <div className='DaycationLandingBackground' style={{ backgroundImage: 'url(' + this.state.backgroundImage + ')' }}>
           </div>
+          <div className='DaycationLandingContent flex flexcolumn-nowrap'>
+            <div className='DaycationHeader'>
+              Ancillary Revenue. <b>Made Easy.</b>
+            </div>
+            <a href='#typeform'><button className='LearnMore'>Learn More</button></a>
+          </div>
           <div className='TypeformContainer flexrow-nowrap flex'>
+            <a name='typeform'></a>
             <iframe id='my_typeform' src='https://daycationapp.typeform.com/to/EIZ2Px'></iframe>
           </div>
         </div>
