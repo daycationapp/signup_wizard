@@ -84,13 +84,13 @@ class DayPasses extends React.Component {
     handleNextClick() {
         let dayPasses = {...this.state.dayPasses};
         this.props.saveDayPasses(dayPasses);
-        browserHistory.push('/cabanas');
+        browserHistory.push('/agreement/cabanas');
     }
 
     handlePreviousClick() {
         let dayPasses = {...this.state.dayPasses};
         this.props.saveDayPasses(dayPasses);
-        browserHistory.push('/');
+        browserHistory.push('/agreement/');
     }
 
     handleSaveClick() {

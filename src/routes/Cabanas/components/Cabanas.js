@@ -30,7 +30,7 @@ class Cabanas extends React.Component {
     handleNextClick() {
         let cabanas = {...this.state.cabanas};
         this.props.saveCabanas(cabanas);
-        browserHistory.push('/agreement');
+        browserHistory.push('/agreement/agreement');
     }
 
     handleSaveClick() {
@@ -62,7 +62,7 @@ class Cabanas extends React.Component {
     handlePreviousClick() {
         let cabanas = {...this.state.cabanas};
         this.props.saveCabanas(cabanas);
-        browserHistory.push('/day-passes');
+        browserHistory.push('/agreement/day-passes');
     }
 
     handleAlertDismiss() {

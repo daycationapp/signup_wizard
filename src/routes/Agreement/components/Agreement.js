@@ -61,7 +61,7 @@ class Agreement extends React.Component {
     handlePreviousClick() {
         let agreement = {...this.state.agreement};
         this.props.saveAgreement(agreement);
-        browserHistory.push('/cabanas');
+        browserHistory.push('/agreement/cabanas');
     }
 
     handleSaveClick() {
