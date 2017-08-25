@@ -52,16 +52,22 @@ div.DaycationHeader {
   }
 
   @media screen and (max-width: 1000px){
-    font-size: 16pt;
+    font-size: 14pt;
     margin-bottom: 25px;
   }
 
   .DaycationHeader__Sub {
     font-size: 18pt;
+    @media screen and (max-width: 768px){
+      font-size: 14pt;
+    }
   }
 
   .DaycationHeader__Big {
     font-size: 28pt;
+    @media screen and (max-width: 768px){
+      font-size: 20pt;
+    }
   }
 }
 
@@ -77,14 +83,9 @@ div.DaycationHeader {
   top: 0;
   align-items: center;
   justify-content: space-around;
-  @media screen and (min-width: 768px) and (max-width: 992px){
+  @media screen and (max-width: 992px){
     justify-content: flex-start;
     padding-top: 75px;
-  }
-
-  @media screen and (max-width: 767px){
-    justify-content: flex-start;
-    padding-top: 100px;
   }
 
   button {
@@ -102,8 +103,12 @@ div.DaycationHeader {
     transition: background-color 0.2s, color 0.2s;
     position: relative;
 
-    @media screen and (max-width: 1000px){
+    @media screen and (min-width: 800px) and (max-width: 1000px){
       padding: 15px 50px;
+    }
+
+    @media screen and (max-width: 800px){
+      padding: 10px 25px;
     }
   
     &:hover {
@@ -163,7 +168,6 @@ nav.DaycationNav {
 }
 
 hr#BeforeContactUs::before {
-  @media screen and (min-width: 992px){
     content: "";
     position: absolute;
     left: 50%;
@@ -174,7 +178,6 @@ hr#BeforeContactUs::before {
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
     pointer-events: none;
-  }
 }
 
 .ContactUsContainer {

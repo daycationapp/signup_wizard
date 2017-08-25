@@ -53,8 +53,8 @@ class Landing extends React.Component {
           </div>
           <div className='DaycationLandingContent flex flexcolumn-nowrap'>
             <div className='DaycationHeader text-center'>
-              <div className='DaycationHeader__Big'><b>Daycation</b><br /></div><br />
-              <b>Ancillary Revenue For Your Hotel.</b> Made Easy.<br /><br />
+              <div className='DaycationHeader__Big'><b>Daycation</b><br /></div>{/* <br /> */}
+              <b>Ancillary Revenue For Your Hotel.</b> Made Easy.<br />{/* <br /> */}
               <div className='DaycationHeader__Sub'>Join Hyatt, SBE, Denihan and others.</div>
             </div>
             <a href='#typeform'><button className='LearnMore'>Learn More</button></a>
