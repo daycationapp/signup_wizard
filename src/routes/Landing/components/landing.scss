@@ -45,21 +45,36 @@ div.DaycationLandingBackground {
 
 div.DaycationHeader {
   font-size: 20pt;
+  position: relative;
 
   @media screen and (min-width: 1024px){
-    position: relative;
     top: 100px;
   }
 
-  @media screen and (max-width: 1000px){
+  @media screen and (min-width: 769px) and (max-width: 1023px){
     font-size: 14pt;
     margin-bottom: 25px;
   }
 
+  @media screen and (min-width: 425px) and (max-width: 768px){
+    font-size: 14pt;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 424px){
+    font-size: 12pt;
+    margin-bottom: 15px;
+    line-height: 2rem;
+  }
+
   .DaycationHeader__Sub {
     font-size: 18pt;
-    @media screen and (max-width: 768px){
+    @media screen and (min-width: 425px) and (max-width: 768px){
       font-size: 14pt;
+    }
+
+    @media screen and (max-width: 424px){
+      font-size: 12pt;
     }
   }
 
@@ -67,6 +82,7 @@ div.DaycationHeader {
     font-size: 28pt;
     @media screen and (max-width: 768px){
       font-size: 20pt;
+      line-height: 2.5rem;
     }
   }
 }
@@ -83,12 +99,12 @@ div.DaycationHeader {
   top: 0;
   align-items: center;
   justify-content: space-around;
-  @media screen and (max-width: 992px){
+  @media screen and (max-width: 1023px){
     justify-content: flex-start;
     padding-top: 75px;
   }
 
-  button {
+  button, .LearnMore {
     -moz-appearance: none;
     -webkit-appearance: none;
     -ms-appearance: none;
@@ -103,7 +119,7 @@ div.DaycationHeader {
     transition: background-color 0.2s, color 0.2s;
     position: relative;
 
-    @media screen and (min-width: 800px) and (max-width: 1000px){
+    @media screen and (min-width: 800px) and (max-width: 1023px){
       padding: 15px 50px;
     }
 
@@ -114,6 +130,7 @@ div.DaycationHeader {
     &:hover {
       background-color: #FF6E61;
       color: white;
+      text-decoration: none;
     }
 
     &:active {
@@ -216,5 +233,18 @@ hr#BeforeContactUs::before {
       background-color: red;
     }
   }
+}
 
+@media screen and (min-width: 769px){
+  .MobileOnly {
+    display: none;
+    pointer-events: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .DesktopOnly {
+    display: none;
+    pointer-events: none;
+  }
 }

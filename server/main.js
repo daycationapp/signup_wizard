@@ -61,7 +61,7 @@ if (project.env === 'development') {
   // Serving ~/dist by default. Ideally these files should be served by
   // the web server and not the app server, but this helps to demo the
   // server in production.
-  app.use(express.static(path.resolve(project.basePath, project.outDir)))
+  app.use(express.static(path.resolve(project.basePath, 'public')))
 }
 
 module.exports = app

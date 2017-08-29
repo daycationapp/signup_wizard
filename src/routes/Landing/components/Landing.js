@@ -31,6 +31,9 @@ class Landing extends React.Component {
   componentDidMount () {
     this.handleResize()
     window.addEventListener('resize', this.handleResize, true)
+    if (typeof window.typeform === 'function') {
+      window.typeform()
+    }
   }
 
   componentWillUnmount () {
@@ -57,11 +60,16 @@ class Landing extends React.Component {
               <b>Ancillary Revenue For Your Hotel.</b> Made Easy.<br />{/* <br /> */}
               <div className='DaycationHeader__Sub'>Join Hyatt, SBE, Denihan and others.</div>
             </div>
-            <a href='#typeform'><button className='LearnMore'>Learn More</button></a>
+            <a className='DesktopOnly' href='#typeform'><button className='LearnMore'>Learn More</button></a>
+            <a className='LearnMore button MobileOnly'
+              href='https://daycationapp.typeform.com/to/EIZ2Px'
+              data-mode='popup'
+              target='_blank'>Learn More
+            </a>
           </div>
           <div className='TypeformContainer flexrow-nowrap flex'>
             <a name='typeform'></a>
-            <iframe id='my_typeform' src='https://daycationapp.typeform.com/to/EIZ2Px'></iframe>
+            <iframe id='my_typeform' className='DesktopOnly' src='https://daycationapp.typeform.com/to/EIZ2Px'></iframe>
           </div>
           <hr id='BeforeContactUs' style={{ border: '1px solid #FF6e61', width: '60%' }} />
           <div className='ContactUsContainer flex flexrow-nowrap'>
